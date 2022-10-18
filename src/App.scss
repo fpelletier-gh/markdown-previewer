@@ -9,3 +9,39 @@ header {
   display: flex;
   justify-content: center;
 }
+
+#preview {
+  img {
+    max-width: 500px;
+  }
+
+  code {
+    background-color: lightgray;
+    padding: 0.2rem 0.3rem;
+    margin: 0 0.2rem;
+  }
+
+  pre {
+    padding: 1rem;
+    background-color: lightgray;
+    border-radius: 5px;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+  }
+
+  th {
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    padding: 10px;
+  }
+
+  td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+}
