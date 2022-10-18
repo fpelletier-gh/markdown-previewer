@@ -1,15 +1,16 @@
 import "./App.scss";
-import { useState } from "react";
-import { marked } from "marked";
-import DOMPurify from "dompurify";
+import {
+  useDefaultEditorValue,
+  useParseHtml,
+} from "./hooks/useDefaultEditorValue";
 
 function App() {
-  const [html, setHtml] = useState("");
+  const { defaultEditorValue } = useDefaultEditorValue();
+  const [html, setHtml] = useParseHtml(defaultEditorValue);
 
   function handleText(e) {
     e.preventDefault();
-    const parsedHtml = DOMPurify.sanitize(marked.parse(e.target.value));
-    setHtml(parsedHtml);
+    setHtml(e.target.value);
   }
 
   return (
@@ -17,7 +18,12 @@ function App() {
       <header>
         <h1 className="primary-header">Markdown Previewer</h1>
       </header>
-      <textarea id="editor" onChange={handleText} />
+      <textarea
+        id="editor"
+        defaultValue={defaultEditorValue}
+        onChange={handleText}
+        onLoad={handleText}
+      ></textarea>
       <section
         id="preview"
         dangerouslySetInnerHTML={{ __html: html }}
