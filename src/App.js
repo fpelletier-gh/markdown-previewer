@@ -16,18 +16,33 @@ function App() {
   return (
     <main className="main">
       <header>
-        <h1 className="primary-header">Markdown Previewer</h1>
+        <h1 className="primary-heading">Markdown Previewer</h1>
       </header>
-      <textarea
-        id="editor"
-        defaultValue={defaultEditorValue}
-        onChange={handleText}
-        onLoad={handleText}
-      ></textarea>
-      <section
-        id="preview"
-        dangerouslySetInnerHTML={{ __html: html }}
-      ></section>
+      <article className="main-section">
+        <section className="editor-container">
+          <div className="editor-heading">
+            <h2 className="secondary-heading">Editor</h2>
+          </div>
+          <section className="editor-section">
+            <textarea
+              id="editor"
+              defaultValue={defaultEditorValue}
+              onChange={handleText}
+              onLoad={handleText}
+            ></textarea>
+          </section>
+        </section>
+        <section className="preview-container">
+          <div className="preview-heading">
+            <h2 className="secondary-heading">Previewer</h2>
+          </div>
+          <section
+            id="preview"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></section>
+        </section>
+      </article>
+      <footer id="footer">Created by Francis Pelletier</footer>
     </main>
   );
 }
